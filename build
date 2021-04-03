@@ -6,15 +6,36 @@ cd external/selinux
 curl -L http://ix.io/2FhM > sasta.patch 
 git am sasta.patch 
 cd /tmp/rom
+cd frameworks/av 
+wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
+patch -p1 < *.patch
+cd /tmp/rom
+cd frameworks/opt/net/wifi
+wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/opt/net/wifi/0001-wifi-Add-StaState-API.patch
+patch -p1 < *.patch
+cd /tmp/rom
+cd frameworks/opt/net/ims
+wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/opt/net/ims/0001-Partially-Revert-Remove-references-to-deprecated-dev.patch
+patch -p1 < *.patch
+cd /tmp/rom
+cd frameworks/base 
+wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/base/0008-WifiManager-Add-StaState-API.patch
+patch -p1 < *.patch
+cd /tmp/rom
 
 . build/envsetup.sh
-lunch aosp_RMX2151-userdebug ##edit this
+lunch lineage_RMX2020-userdebug ##edit this
 export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
+export CIPHER_OFFICIAL=true
+export WITH_GAPPS=true
+export SKIP_API_CHECKS=true
+export SKIP_ABI_CHECKS=true
 ccache -M 20G
 ccache -o compression=true
 ccache -z
+ccache -c
 
 up(){
 	curl --upload-file $1 https://transfer.sh/
@@ -27,8 +48,8 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j16
-	zip=$(up out/target/product/RMX2151/*zip) ##edit this change from miatoll---> /<your device codename>
+	mka bacon -j$(nproc --all)
+	zip=$(up out/target/product/RMX2020/*zip) ##edit this change from miatoll---> /<your device codename>
 	echo " "
 	echo "$zip"
 }
