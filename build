@@ -1,0 +1,38 @@
+#!/bin/bash
+cd /tmp/rom
+rm -rf .repo
+
+cd external/selinux 
+curl -L http://ix.io/2FhM > sasta.patch 
+git am sasta.patch 
+cd /tmp/rom
+
+. build/envsetup.sh
+lunch aosp_RMX2151-userdebug ##edit this
+export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
+export CCACHE_EXEC=$(which ccache)
+export USE_CCACHE=1
+ccache -M 20G
+ccache -o compression=true
+ccache -z
+
+up(){
+	curl --upload-file $1 https://transfer.sh/
+}
+
+make_metalava(){
+	mka api-stubs-docs
+	mka system-api-stubs-docs
+	mka test-api-stubs-docs
+}
+
+make_rom(){
+	make bacon -j16
+	zip=$(up out/target/product/RMX2151/*zip) ##edit this change from miatoll---> /<your device codename>
+	echo " "
+	echo "$zip"
+}
+
+make_metalava
+make_rom &
+sleep 4500 && kill "$!"
