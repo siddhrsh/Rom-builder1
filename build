@@ -1,7 +1,6 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
-
 cd external/selinux 
 curl -L http://ix.io/2FhM > sasta.patch 
 git am sasta.patch 
@@ -22,11 +21,8 @@ cd frameworks/base
 wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/base/0008-WifiManager-Add-StaState-API.patch
 patch -p1 < *.patch
 cd /tmp/rom
-
 source build/envsetup.sh
-lunch lineage_RMX2020-userdebug ##edit this
-export CIPHER_OFFICIAL=true
-export WITH_GAPPS=true
+lunch lineage_RMX2020-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -50,8 +46,8 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j8
-	zip=$(up out/target/product/RMX2020/*zip) ##edit this change from miatoll---> /<your device codename>
+	mka bacon -j8
+	zip=$(up out/target/product/RMX2020/*zip)
 	echo " "
 	echo "$zip"
 }
