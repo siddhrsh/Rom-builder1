@@ -23,15 +23,17 @@ wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-1
 patch -p1 < *.patch
 cd /tmp/rom
 
-. build/envsetup.sh
+source build/envsetup.sh
 lunch lineage_RMX2020-userdebug ##edit this
-export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
-export CCACHE_EXEC=$(which ccache)
-export USE_CCACHE=1
 export CIPHER_OFFICIAL=true
 export WITH_GAPPS=true
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
+cd /tmp/rom
+export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
+export CCACHE_EXEC=$(which ccache)
+export USE_CCACHE=1
+
 ccache -M 20G
 ccache -o compression=true
 ccache -z
@@ -48,7 +50,7 @@ make_metalava(){
 }
 
 make_rom(){
-	mka bacon -j$(nproc --all)
+	make bacon -j8
 	zip=$(up out/target/product/RMX2020/*zip) ##edit this change from miatoll---> /<your device codename>
 	echo " "
 	echo "$zip"
