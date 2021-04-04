@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo
 cd build/make 
 wget https://raw.githubusercontent.com/Maanush2004/android_device_realme_RMX1821/lineage-17.1-rmui/patches/build/make/0001-build-Add-option-to-append-vbmeta-image-to-boot-imag.patch
-git am *.patch
+patch -p1 < *.patch
 cd /tmp/rom
 cd external/selinux 
 curl -L http://ix.io/2FhM > sasta.patch 
