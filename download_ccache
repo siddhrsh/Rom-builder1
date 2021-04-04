@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/ccache-forklos.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/ccache-folos.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf ccache-forklos.tar.gz
+time tar xf ccache-folos.tar.gz
 echo "unzip done"
-find ccache-forklos.tar.gz -delete
+find ccache-folos.tar.gz -delete
