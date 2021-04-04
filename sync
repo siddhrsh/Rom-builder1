@@ -21,5 +21,7 @@ ls
 git clone https://github.com/Maanush2004/android_vendor_realme_RMX1821.git vendor/realme/RMX1821
 git clone https://github.com/Maanush2004/android_device_realme_RMX1821.git device/realme/RMX1821
 git clone https://github.com/Maanush2004/android_kernel_realme_RMX1821.git kernel/realme/RMX1821
+git clone https://github.com/PixelExperience/vendor_mediatek_ims.git vendor/mediatek/ims 
+git clone https://github.com/PixelExperience/vendor_mediatek_interfaces.git vendor/mediatek/interfaces
 
 cd /tmp/rom
