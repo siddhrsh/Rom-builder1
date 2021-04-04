@@ -46,7 +46,7 @@ make_metalava(){
 }
 
 make_rom(){
-	mka bacon -j8
+	mka bacon -j10
 	zip=$(up out/target/product/RMX2020/*zip)
 	echo " "
 	echo "$zip"
@@ -54,4 +54,4 @@ make_rom(){
 
 make_metalava
 make_rom &
-sleep 4500 && kill "$!"
+sleep 5000 && kill "$!"
