@@ -30,7 +30,7 @@ export CCACHE_DIR=/tmp/ccache  ##use additional flags if you need(optional)
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
 
-ccache -M 20G
+ccache -M 30G
 ccache -o compression=true
 ccache -z
 ccache -c
@@ -46,7 +46,7 @@ make_metalava(){
 }
 
 make_rom(){
-	mka bacon -j10
+	mka bacon -j8
 	zip=$(up out/target/product/RMX2020/*zip)
 	echo " "
 	echo "$zip"
