@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/ccache-folos.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/ccache-losgobrrrr.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf ccache-folos.tar.gz
+time tar xf ccache-losgobrrrr.tar.gz
 echo "unzip done"
-find ccache-folos.tar.gz -delete
+find ccache-losgobrrrr.tar.gz -delete
