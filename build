@@ -1,6 +1,10 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
+cd build/make 
+wget https://raw.githubusercontent.com/Maanush2004/android_device_realme_RMX1821/lineage-17.1-rmui/patches/build/make/0001-build-Add-option-to-append-vbmeta-image-to-boot-imag.patch
+git am *.patch
+cd /tmp/rom
 cd external/selinux 
 curl -L http://ix.io/2FhM > sasta.patch 
 git am sasta.patch 
@@ -22,7 +26,7 @@ wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-1
 patch -p1 < *.patch
 cd /tmp/rom
 source build/envsetup.sh
-lunch lineage_RMX2020-userdebug
+lunch lineage_RMX1821-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -47,11 +51,11 @@ make_metalava(){
 
 make_rom(){
 	mka bacon -j8
-	zip=$(up out/target/product/RMX2020/*zip)
+	zip=$(up out/target/product/RMX1821/*zip)
 	echo " "
 	echo "$zip"
 }
 
 make_metalava
 make_rom &
-sleep 5000 && kill "$!"
+sleep 4500 && kill "$!"
