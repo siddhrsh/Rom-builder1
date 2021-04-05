@@ -47,7 +47,7 @@ make_metalava(){
 
 make_rom(){
 	mka recoveryimage
-	zip=$(up out/target/product/RMX2020/*recovery*.img)
+	zip=$(up out/target/product/RMX2020/recovery.img)
 	echo " "
 	echo "$zip"
 }
