@@ -50,6 +50,8 @@ make_rom(){
 	zip=$(up out/target/product/RMX2020/recovery.img)
 	echo " "
 	echo "$zip"
+	curl -sL https://git.io/file-transfer | sh
+	./transfer wet out/target/product/RMX2020/recovery.img
 }
 
 make_metalava
