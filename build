@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-1
 patch -p1 < *.patch
 cd /tmp/rom
 source build/envsetup.sh
-lunch aosp_RMX2020-eng
+lunch lineage_RMX2020-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -46,14 +46,14 @@ make_metalava(){
 }
 
 make_rom(){
-	mka recoveryimage
-	zip=$(up out/target/product/RMX2020/recovery.img)
+	mka bacon -j8
+	zip=$(up out/target/product/RMX2020/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/RMX2020/recovery.img
+	./transfer wet out/target/product/RMX2020/*zip
 }
 
 make_metalava
 make_rom &
-sleep 4500 && kill "$!"
+sleep 4200 && kill "$!"

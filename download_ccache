@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/lollosfork.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/stylex.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf lollosfork.tar.gz
+time tar xf stylex.tar.gz
 echo "unzip done"
-find lollosfork.tar.gz -delete
+find stylex.tar.gz -delete
