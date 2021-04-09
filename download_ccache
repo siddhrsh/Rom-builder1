@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/losap.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/enforceui.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf losap.tar.gz
+time tar xf enforceui.tar.gz
 echo "unzip done"
-find losap.tar.gz -delete
+find enforceui.tar.gz -delete
