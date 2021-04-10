@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/enforceui.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/aoup.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf enforceui.tar.gz
+time tar xf aoup.tar.gz
 echo "unzip done"
-find enforceui.tar.gz -delete
+find aoup.tar.gz -delete
