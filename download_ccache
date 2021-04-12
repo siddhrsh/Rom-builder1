@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/fluidasfack.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/flud.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf fluidasfack.tar.gz
+time tar xf flud.tar.gz
 echo "unzip done"
-find fluidasfack.tar.gz -delete
+find flud.tar.gz -delete
