@@ -21,12 +21,8 @@ cd frameworks/opt/net/ims
 wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/opt/net/ims/0001-Partially-Revert-Remove-references-to-deprecated-dev.patch
 patch -p1 < *.patch
 cd /tmp/rom
-cd frameworks/base 
-wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/frameworks/base/0008-WifiManager-Add-StaState-API.patch
-patch -p1 < *.patch
-cd /tmp/rom
 source build/envsetup.sh
-lunch lineage_RMX2020-userdebug
+lunch fluid_RMX2020-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -59,4 +55,5 @@ make_rom(){
 }
 
 make_metalava
-make_rom
+make_rom &
+sleep 4200 && kill "$!"
