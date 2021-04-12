@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/flud.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/ijhynn.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf flud.tar.gz
+time tar xf ijhynn.tar.gz
 echo "unzip done"
-find flud.tar.gz -delete
+find ijhynn.tar.gz -delete
