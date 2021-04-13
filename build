@@ -14,7 +14,7 @@ wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024
 patch -p1 < *.patch
 cd /tmp/rom
 source build/envsetup.sh
-lunch fluid_RMX2020-userdebug
+lunch fluid_RMX2020-eng
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
