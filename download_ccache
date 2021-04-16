@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/0://uiop.tar.gz
+url=https://ghostmirror.hitesh920.workers.dev/0://fludy.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf uiop.tar.gz
+time tar xf fludy.tar.gz
 echo "unzip done"
-find uiop.tar.gz -delete
+find fludy.tar.gz -delete
