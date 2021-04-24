@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo
 cd /tmp/rom
 source build/envsetup.sh
-brunch
+lunch aosp_enchilada-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
