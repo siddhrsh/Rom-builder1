@@ -1,20 +1,9 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
-cd external/selinux 
-wget https://raw.githubusercontent.com/SamarV-121/android_vendor_extra/lineage-18.1/patches/external/selinux/0001-Revert-libsepol-Make-an-unknown-permission-an-error-.patch
-patch -p1 < *.patch
-cd /tmp/rom
-cd vendor/qcom/opensource/usb 
-wget https://github.com/LineageOS/android_vendor_qcom_opensource_usb/commit/cec97e1e8e0dc407ea13b583ca6b15dce98b0fbd.patch
-patch -R -p1 < *.patch
-cd /tmp/rom
-cd frameworks/av 
-wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
-patch -p1 < *.patch
 cd /tmp/rom
 source build/envsetup.sh
-lunch fluid_RMX2020-userdebug
+brunch
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -39,11 +28,11 @@ make_metalava(){
 
 make_rom(){
 	mka bacon -j8
-	zip=$(up out/target/product/RMX2020/*zip)
+	zip=$(up out/target/product/enchilada/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/RMX2020/*zip
+	./transfer wet out/target/product/enchilada/*zip
 }
 
 make_metalava
