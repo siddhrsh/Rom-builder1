@@ -3,7 +3,7 @@ cd /tmp/rom
 rm -rf .repo
 cd /tmp/rom
 source build/envsetup.sh
-lunch aosp_enchilada-userdebug
+lunch aosp_RMX1941-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -28,11 +28,11 @@ make_metalava(){
 
 make_rom(){
 	mka bacon -j8
-	zip=$(up out/target/product/enchilada/*zip)
+	zip=$(up out/target/product/RMX1941/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/enchilada/*zip
+	./transfer wet out/target/product/RMX1941/*zip
 }
 
 make_metalava
