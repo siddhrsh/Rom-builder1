@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=https://github.com/Havoc-OS/android_manifest.git
+MANIFEST=https://github.com/PixelExperience/manifest.git
 BRANCH=eleven
 
 mkdir -p /tmp/rom
@@ -18,7 +18,7 @@ pwd
 ls
 
 ##delete these lines, and replace with your own lines of device sauce
-git clone https://github.com/ClintT/device_oneplus_sdm845-common.git device/oneplus/sdm845-common
-git clone https://github.com/ClintT/device_oneplus_enchilada.git device/oneplus/enchilada
+git clone https://github.com/SparXFusion/android_device_realme_RMX1941.git device/realme/RMX1941
+git clone https://github.com/SparXFusion/android_vendor_realme_RMX1941.git vendor/realme/RMX1941
 
 cd /tmp/rom
